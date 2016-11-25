@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>SysTM 3.0</title>
+<link rel="SHORTCUT ICON"
+	href="http://cdn8.staztic.com/app/a/6090/6090049/travelmate-9-l-280x280.png" />
+<!-- Bootstrap core CSS -->
+<link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="resources/bootstrap/css/endless.min.css" rel="stylesheet" />
+<link href="resources/bootstrap/css/endless-skin.css" rel="stylesheet" />
+<script src='resources/bootstrap/css/charBar.js'></script>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+<style type="text/css">
+#Layer1 {
+	position: relative;
+	z-index: 1;
+}
+
+.style5 {
+	font-size: 55px;
+	font-weight: bolder;
+	font-family: sans-serif;
+	color: #ffffff;
+	font-style: inherit;
+}
+
+body {
+	background: #4F9E6C;
+	background-repeat: no-repeat;
+	background-size: 820px;
+	height: 600px;
+	background-position: center;
+}
+
+#container {
+	width: 60%;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+input[type=checkbox] {
+	-ms-transform: scale(2);
+	-moz-transform: scale(2);
+	-webkit-transform: scale(2);
+	-o-transform: scale(2);
+	padding: 10px;
+	color: #AECE55;
+}
+</style>
+
+<script language="javascript">
+//<![CDATA[
+	var YY = 2016;
+	var MM = 12;
+	var DD = 01;
+	var HH = 10;
+	var MI = 00;
+	var SS = 00; 
+
+	function atualizaContador() {    
+		 
+		var hoje = new Date();
+		var futuro = new Date(YY, MM - 1, DD, HH, MI, SS);
+
+		var ss = parseInt((futuro - hoje) / 1000);
+		var mm = parseInt(ss / 60);
+		var hh = parseInt(mm / 60);
+		var dd = parseInt(hh / 960);
+
+		ss = ss - (mm * 60);
+		mm = mm - (hh * 60);
+		hh = hh - (dd * 24);
+   
+		var faltam = '<span class="style5">Novo SysTM 3.0</span><br/>';
+		faltam += (toString(hh).length) ? hh
+				+ '<span style="font-size:42px;color:#00000;">H</span>&nbsp;&nbsp;'
+				: '';
+		faltam += (toString(mm).length) ? mm
+				+ '<span style="font-size:42px;color:#00000;">M</span>&nbsp;&nbsp;'
+				: '';
+		faltam += ss + '<span style="font-size:42px;color:#00000;">S</span>'; 
+	
+		
+		if (dd + hh + mm + ss > 0) {  
+			document.getElementById('contador').innerHTML = faltam;
+			
+			setTimeout(atualizaContador, 0);   
+		} else {
+			document.getElementById('contador').innerHTML = '<span style="font-size:100px;#ffffff;">TEMPO ESGOTADO!</span>';
+			setTimeout(atualizaContador, 0);
+		}
+	}
+	
+	function atualizaLoading(){
+		var percentual = parseInt(jQuery('#percentualTime').text());
+		if(percentual < 100) {
+			jQuery('#percentualTime').html(parseInt(percentual+1));
+		} else {
+			jQuery('#percentualTime').html(0); 
+			jQuery('#coluna1').html(''); 
+			jQuery('#coluna2').html(''); 
+		}
+		
+		if(percentual == 15) {
+			jQuery('#coluna1').html('<img src="resources/img/check.png" style="margin-top:-5%;"/><label style="font-size:25px; margin-left:3%;margin-top:1%; color: #ffffff;">MateRunners</label><br />');
+		}else if(percentual == 30) {
+			jQuery('#coluna1').html('<img src="resources/img/check.png" style="margin-top:-5%;"/><label style="font-size:25px; margin-left: 3%; color: #ffffff;">MateRunners</label><br />'
+					+'<img src="resources/img/check.png" style="margin-top:-5%;"/><label style="font-size: 25px; margin-left: 3%; color: #ffffff;">Docs</label><br />');
+		}else if(percentual == 45) {
+			jQuery('#coluna1').html('<img src="resources/img/check.png" style="margin-top:-5%;"/><label style="font-size:25px; margin-left: 3%; color: #ffffff;">MateRunners</label><br />'
+					+'<img src="resources/img/check.png" style="margin-top:-5%;"/><label style="font-size: 25px; margin-left: 3%; color: #ffffff;">Docs</label><br />'
+					+'<img src="resources/img/check.png" style="margin-top:-5%;"/><label style="font-size: 25px; margin-left: 3%; color: #ffffff;">Promoções</label><br />');
+		}
+		
+		if(percentual == 60) {
+			jQuery('#coluna2').html('<img src="resources/img/check.png" style="margin-top:-5%;"/><label style="font-size: 25px; margin-left: 3%; color: #ffffff;">Race</label><br />');
+		}else if(percentual == 75) {
+			jQuery('#coluna2').html('<img src="resources/img/check.png" style="margin-top:-5%;"/><label style="font-size: 25px; margin-left: 3%; color: #ffffff;">Race</label><br />'
+					+'<img src="resources/img/check.png" style="margin-top:-5%;"/><label style="font-size: 25px; margin-left: 3%; color: #ffffff;">Metas</label><br />');
+		}else if(percentual == 85) {
+			jQuery('#coluna2').html('<img src="resources/img/check.png" style="margin-top:-5%;"/><label style="font-size: 25px; margin-left: 3%; color: #ffffff;">Race</label><br />'
+					+'<img src="resources/img/check.png" style="margin-top:-5%;"/><label style="font-size: 25px; margin-left: 3%; color: #ffffff;">Metas</label><br />'
+					+'<img src="resources/img/check.png" style="margin-top:-5%;"/><label style="font-size: 25px; margin-left: 3%; color: #ffffff;">Novo Layout</label><br />');
+		}
+		
+		var percentualhtml = '<span class="badge badge-info" style="float:right;">' + percentual + '%</span>'; 
+		
+		var loadingHtml = '<div class="progress progress-striped active" style="height: 38px; margin: 5px 0 0 0; margin-top: -0.5%; width: 70%;">'
+						 +'<div class="progress-bar" style="width:'+(percentual)+'%"></div></div>';
+						 
+	 	jQuery('#percentual').html(percentualhtml);
+	 	jQuery('#loading').html(loadingHtml); 
+	}
+	
+	jQuery(document).ready(function(){
+		setInterval(atualizaLoading,100);
+	});
+	//]]>
+</script>
+</head>
+<Br />
+<body onLoad="atualizaContador()">
+	<div id="Layer1">
+		<div align="center">
+			<div id="container" align="center">
+				<span id="contador" style="font-size: 100px; color: #ffffff;margin-top: -3%;"></span>
+				<div id="percentual" align="center" class="col-lg-12"
+					style="margin-top: -1.2%; width: 84.5%;"></div>
+				<br />
+				<br />
+				<div id="loading" align="center" class="col-lg-12" style="width: 100%">
+					
+				</div>
+				
+				<br></br>
+				<br></br>
+				<br></br>
+				<div align="center" class="col-lg-12"
+					style="width: 70%; margin-left: 19%;">
+					<div id="coluna1" class="col-lg-6" align="left">  
+					
+					</div>
+					<div  id="coluna2" class="col-lg-6" align="left">
+						 
+					</div>
+				</div>
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<div align="right" style="width: 97%; margin-top: 2%;">
+					<img src="resources/img/logosystm.png" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="percentualTime" style="display:none;">0</div>  
+</body>
+</html>
