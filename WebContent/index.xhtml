@@ -24,7 +24,7 @@
 }
 
 .style5 {
-	font-size: 55px;
+	font-size: 50px;
 	font-weight: bolder;
 	font-family: sans-serif;
 	color: #ffffff;
@@ -79,16 +79,16 @@ input[type=checkbox] {
 		mm = mm - (hh * 60);
 		hh = hh - (dd * 24);
    
-		var faltam = '<span class="style5">Lançamento SysTM 3.0</span><br/>';
-		faltam += '<span style="font-size:42px;color:#00000;">Data: 01/12/2016 às 10:00 horas</span><br/>';
+		var faltam = '<span class="style5">Lançamento SysTM 3.0</span>';
+		faltam += '<div style="margin-top:-6%;"><span style="font-size:38px;color:#00000;">Data: 01/12/2016 às 10:00 horas</span><div><div style="margin-top:-3%;">';
 		faltam += (toString(hh).length) ? hh
 				+ '<span style="font-size:42px;color:#00000;">H</span>&nbsp;&nbsp;'
 				: '';
-		faltam += (toString(mm).length) ? mm
+		faltam += (toString(mm).length) ? mm  
 				+ '<span style="font-size:42px;color:#00000;">M</span>&nbsp;&nbsp;'
 				: '';
-		faltam += ss + '<span style="font-size:42px;color:#00000;">S</span><br/>'; 
-	    faltam += '<span style="font-size:38px;color:#00000;">O que vem por ai</span>'
+		faltam += ss + '<span style="font-size:42px;color:#00000;">S</span></div><br/>';   
+	    faltam += '<div style="margin-top:-24%;"><span style="font-size:38px;color:#00000;">O que vem por ai</span></div>'
 		
 		if (dd + hh + mm + ss > 0) {  
 			document.getElementById('contador').innerHTML = faltam;
@@ -134,9 +134,9 @@ input[type=checkbox] {
 		
 		var percentualhtml = '<span class="badge badge-info" style="float:right;">' + percentual + '%</span>'; 
 		
-		var loadingHtml = '<div class="progress progress-striped active" style="height: 38px; margin: 5px 0 0 0; margin-top: -0.5%; width: 70%;">'
+		var loadingHtml = '<div class="progress progress-striped active" style="height: 38px;width: 70%;">'
 						 +'<div class="progress-bar" style="width:'+(percentual)+'%"></div></div>';
-						 
+						      
 	 	jQuery('#percentual').html(percentualhtml);
 	 	jQuery('#loading').html(loadingHtml); 
 	}
@@ -149,23 +149,17 @@ input[type=checkbox] {
 </head>
 <Br />
 <body onLoad="atualizaContador()">
-	<div id="Layer1">
+	<div id="Layer1">   
 		<div align="center">
 			<div id="container" align="center">
-				<span id="contador" style="font-size: 100px; color: #ffffff;margin-top: -3%;"></span>
+				<span id="contador" style="font-size:90px;color: #ffffff;"></span>
 				<div id="percentual" align="center" class="col-lg-12"
-					style="margin-top: -1.2%; width: 84.5%;"></div>
-				<br />
-				<br />
-				<div id="loading" align="center" class="col-lg-12" style="width: 100%">
-					
-				</div>
-				
-				<br></br>
-				<br></br>
-				<br></br>
+					style="width: 84.5%;"></div>    
+				<div id="loading" align="center"  style="width: 100%;margin-top:4%;">
+					    
+				</div>      
 				<div align="center" class="col-lg-12"
-					style="width: 70%; margin-left: 19%;">
+					style="width: 70%; margin-left: 19%;margin-top:1%;">
 					<div id="coluna1" class="col-lg-6" align="left">  
 					
 					</div>
@@ -175,9 +169,7 @@ input[type=checkbox] {
 				</div>
 				<br />
 				<br />
-				<br />
-				<br />
-				<br />
+				<br /> 
 				<div align="right" style="width: 97%; margin-top: 2%;">
 					<img src="resources/img/logosystm.png" />
 				</div>
