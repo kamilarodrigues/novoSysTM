@@ -79,15 +79,16 @@ input[type=checkbox] {
 		mm = mm - (hh * 60);
 		hh = hh - (dd * 24);
    
-		var faltam = '<span class="style5">Novo SysTM 3.0</span><br/>';
+		var faltam = '<span class="style5">Lançamento SysTM 3.0</span><br/>';
+		faltam += '<span style="font-size:42px;color:#00000;">Data: 01/12/2016 às 10:00 horas</span><br/>';
 		faltam += (toString(hh).length) ? hh
 				+ '<span style="font-size:42px;color:#00000;">H</span>&nbsp;&nbsp;'
 				: '';
 		faltam += (toString(mm).length) ? mm
 				+ '<span style="font-size:42px;color:#00000;">M</span>&nbsp;&nbsp;'
 				: '';
-		faltam += ss + '<span style="font-size:42px;color:#00000;">S</span>'; 
-	
+		faltam += ss + '<span style="font-size:42px;color:#00000;">S</span><br/>'; 
+	    faltam += '<span style="font-size:38px;color:#00000;">O que vem por ai</span>'
 		
 		if (dd + hh + mm + ss > 0) {  
 			document.getElementById('contador').innerHTML = faltam;
